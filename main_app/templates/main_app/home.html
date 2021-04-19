@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-APP</title>
+</head>
+<body>
+    <div class="container">
+        <h2>TODO-APP</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="task">
+            <button>submit</button>
+        </form>
+    </div>
+    {% for Todo in Todos %}
+        <h3>{{ Todo.task }}<a href="Delete/{{Todo.id}}">Delete</a></h3>
+    {% endfor %}
+</body>
+</html>
